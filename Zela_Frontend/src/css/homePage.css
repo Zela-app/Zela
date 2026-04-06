@@ -1,0 +1,92 @@
+:root{
+    --cor-principal: #3b1c5f;
+    --cor-principal-escuro: #240d4b;
+    --cor-principal-clara: #5d3a85;
+    --rose: #965d7f;
+    --rose-escuro: #73395c;
+    --rose-claro: #cb8cb1;
+    --azul-marinho: #001c39;
+    --lilas: #e0afff;
+    --branco: #ffffff;
+    --cinza: #475569;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+}
+
+.navbar {
+    background-color: var(--cor-principal-escuro); /* Cor fiel à imagem */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%; 
+    gap: 3rem;
+}
+
+.logo {
+    height: 50px; /* Ajuste o tamanho da sua logo aqui */
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.menu li a {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.menu li a:hover {
+    opacity: 0.7;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.link-login {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.hero{
+    padding: 6.25rem 1.25rem;
+    text-align: center;
+    background-color: var(--branco  );
+}
+
+#cadastro {
+    background-color: var(--rose);
+    color: var(--branco);
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px; 
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#cadastro:hover {
+    background-color: var(--rose-escuro);
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    .grid-resources { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; }
+}
