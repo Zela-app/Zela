@@ -3,13 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/homePage.css">
     <title>Zela-Aplicativo de Segurança Integrado com IA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 <body>
+    <!--Cabeçalho -->
     <header>
+    <nav class="navbar">
         
-    </header>
-    <main></main>
-    <footer></footer>
+            <img class="logo" src="/Zela_Frontend/assets/icons/Zela_logo_rose.svg" alt="logo zela">
+            <ul class="menu">
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Compromisso</a></li>
+                <li><a href="#">Como funciona</a></li>
+            </ul>
+        
+        <div class="nav-right">
+            <a href="#" class="link-login">Entrar</a>
+            <button id="cadastro">Cadastre-se</button>
+        </div>
+    </nav>
+</header>
+    <main>
+        <section class="hero">
+            <div>
+                <span class="badge">Proteção inteligente e Discreta</span>  
+                <h1>Tecnologia que protege. <br>Cuidado que acolhe.</h1> 
+                <p class="subtitulo">Vigilância e segurança de forma rápida e segura para você e sua família, com foco na rapidez e discrição.</p> 
+                <div class="hero-btns">
+                    <button id="btn-cadastro" class="btn-hero">Junte-se à nós. Sinta-se mais segura hoje! </button>
+                    <button class="saiba-mais">Saiba mais</button>
+                </div>
+                <div class="hero-trust">
+                   <span class="trust-item"><i class="fa-solid fa-shield-heart"></i>
+                    100% Segura
+                </span>
+                <span class="trust-item">
+                    <i class="fa-solid fa-clock"></i> Proteção 24/7
+                </span>
+                   <span>
+                       <i class="fa-solid fa-hand-holding-heart"></i>
+                       Cuidado Humano
+                   </span>
+
+                </div>
+            </div>
+        </section>
+        <section class="compromisso">
+    <div class="container-grid">
+        <h2 class="title-white">Nosso compromisso com você</h2>
+        <div class="compromisso-cards">
+            <div class="card-purple">
+                <i class="fa-solid fa-hands-holding icon-card"></i>
+                <h3>Acolhimento e Empatia</h3>
+                <p>Criamos um suporte humanizado pensando em acolher você com segurança e compreensão.</p>
+            </div>
+            <div class="card-purple">
+                <i class="fa-solid fa-microchip icon-card"></i>
+                <h3>Tecnologia e Inovação</h3>
+                <p>Ferramentas inteligentes com um sistema para conexão e tecnologia de ponta em proteção.</p>
+            </div>
+            <div class="card-purple">
+                <i class="fa-solid fa-user-shield icon-card"></i>
+                <h3>Segurança e Privacidade</h3>
+                <p>Cuidamos dos seus dados com proteção constante em todos os nossos processos internos.</p>
+            </div>
+            <div class="card-purple">
+                <i class="fa-solid fa-earth-americas icon-card"></i>
+                <h3>Impacto Social</h3>
+                <p>Nosso propósito vai além do app. Trabalhamos por um mundo com mais segurança e respeito.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="recursos">
+    <div class="container-grid">
+        <span class="badge">Recursos</span>
+        <h2 class="title-dark">Tudo o que você precisa para se sentir segura</h2>
+        <p class="subtitulo">Conheça as tecnologias que fazem do Zela a escolha certa para sua proteção e bem-estar.</p>
+        
+        <div class="recursos-grid">
+            <div class="recursos-item">
+                <div class="icon-circle"><i class="fa-solid fa-robot"></i></div>
+                <h4>Inteligência Artificial</h4>
+                <p>Tecnologia de ponta para análise e identificação de situações de risco.</p>
+            </div>
+            <div class="recursos-item">
+                <div class="icon-circle"><i class="fa-solid fa-users"></i></div>
+                <h4>Rede de Confiança</h4>
+                <p>Conecte-se com pessoas próximas para uma rede de apoio mútua.</p>
+            </div>
+            <div class="recursos-item">
+                <div class="icon-circle"><i class="fa-solid fa-eye-slash"></i></div>
+                <h4>Proteção Discreta</h4>
+                <p>Interface pensada para não chamar atenção em momentos críticos.</p>
+            </div>
+            <div class="recursos-item">
+                <div class="icon-circle"><i class="fa-solid fa-bell"></i></div>
+                <h4>Alertas Automáticos</h4>
+                <p>Sistema inteligente que detecta situações de risco e envia alertas automaticamente.</p>
+            </div>
+
+            <div class="recursos-item">
+                <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
+                <h4>Resposta Rápida</h4>
+                <p>Garantimos que a ajuda chegue o mais rápido possível quando você mais precisa.</p>
+            </div>
+
+            <div class="recursos-item">
+                <div class="icon-circle"><i class="fa-solid fa-circle-check"></i></div>
+                <h4>Fácil de Usar</h4>
+                <p>Interface simples e intuitiva, desenvolvida pensando no seu conforto e segurança.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="prioridade">
+    <div class="container-prioridade">
+        <div class="prioridade-content">
+            <div class="prioridade-icons">
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-regular fa-face-smile"></i>
+                <i class="fa-regular fa-user"></i>
+            </div>
+            <h2>Sua segurança é nossa prioridade</h2>
+            <p>Utilize as tecnologias inteligentes para monitorar em tempo real quem mais você ama. Você não está sozinha.</p>
+            
+            <div class="prioridade-btns">
+                <button id="js-btn-assinatura" class="btn-white">Junte-se a nós. Sinta-se segura hoje.</button>
+                <button class="btn-outline-white">Saiba mais</button>
+            </div>
+
+            <div class="prioridade-stats">
+                <div class="stat-item">
+                    <strong>10k +</strong>
+                    <p>Usuários ativos</p>
+                </div>
+                <div class="stat-item">
+                    <strong>99.9%</strong>
+                    <p>Taxa de Eficiência</p>
+                </div>
+                <div class="stat-item">
+                    <strong>24/7</strong>
+                    <p>Monitoramento</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ajuda">
+    <div class="container-grid">
+        <h2 class="title-dark">Encontre mais ajuda</h2>
+        <p class="ajuda-aviso">Mais de nosso braço de apoio se reflete ao longo dos serviços especiais nestas áreas de ajuda que você conheça através de ajuda imediata, use seu canal de apoio especializado no Brasil.</p>
+
+        <div class="ajuda-lista">
+            <div class="ajuda-item">
+                <div class="ajuda-info">
+                    <div class="icon-circle-rose"><i class="fa-solid fa-phone"></i></div>
+                    <div>
+                        <h4>Ligue 180 - Central de Atendimento à Mulher</h4>
+                        <p>Serviço gratuito para denúncias, orientação e acolhimento. Funciona 24 horas por dia.</p>
+                    </div>
+                </div>
+                <button class="btn-ligar">180</button>
+            </div>
+
+            <div class="ajuda-item">
+                <div class="ajuda-info">
+                    <div class="icon-circle-rose"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div>
+                        <h4>Disque 100 - Direitos Humanos</h4>
+                        <p>Atendimento 24h para violações de direitos humanos de forma geral.</p>
+                    </div>
+                </div>
+                <button class="btn-ligar">100</button>
+            </div>
+
+            <div class="ajuda-item">
+                <div class="ajuda-info">
+                    <div class="icon-circle-rose"><i class="fa-solid fa-handcuffs"></i></div>
+                    <div>
+                        <h4>Ligue 190 - Polícia Militar</h4>
+                        <p>Para casos de flagrante e situações de perigo iminente. Atendimento 24h.</p>
+                    </div>
+                </div>
+                <button class="btn-ligar">190</button>
+            </div>
+        </div>
+        
+        <p class="politica-msg">Lembre-se:Você não está sozinha. Buscar ajuda é um ato de coragem e o primeiro passo para retomar o controle da sua vida.</p>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <img class="logo-white" src="/Zela_Frontend/assets/icons/Zela_logo_branca.svg" alt="logo zela">
+            
+        </div>
+        <div class="footer-links">
+            <div class="footer-col">
+                <h4>Sobre o zela</h4>
+                <a href="#">Quem somos</a>
+                <a href="#">Como funciona</a>
+            </div>
+            <div class="footer-col">
+                <h4>Suporte</h4>
+                <a href="#">Central de ajuda</a>
+                <a href="#">Privacidade</a>
+                <a href="#">Termos de uso</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <a href="#">atendimento@zela.com.br</a>
+                <a href="#">(00) 00000-0000</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Zela. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+    </main>
+   
 </body>
 </html>
