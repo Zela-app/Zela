@@ -1,0 +1,9 @@
+body{
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--branco);
+}
+.sidebar{
+  flex: 1;
+  background-color: purple;
+}
