@@ -298,15 +298,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const year  = document.getElementById("year")?.value;
 
         const payload = {
-            nomeCompleto:    document.getElementById("name")?.value.trim(),
-            cpf:             document.getElementById("cpf")?.value.replace(/\D/g, ""), // só números
-            dataNascimento:  `${year}-${month}-${day}`,                                 // formato ISO: YYYY-MM-DD
+            nome:            document.getElementById("name")?.value.trim(),
+            cpf:             document.getElementById("cpf")?.value, 
+            dataNascimento:  `${day}/${month}/${year}`, 
             email:           document.getElementById("email")?.value.trim().toLowerCase(),
-            telefone:        (document.getElementById("phone") || document.getElementById("telefone"))
-                                ?.value.replace(/\D/g, ""),                             // só números
+            telefone:        (document.getElementById("phone") || document.getElementById("telefone"))?.value, 
             senha:           document.getElementById("password")?.value,
         };
-
         // Exibe a tela de loading
         showScreen("loading-screen");
 
