@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zela - Dashboard</title>
+    <link rel="stylesheet" href="css/tela.css">
+</head>
+<body>
+
+<header>
+    <img src="/Zela_Frontend/assets/icons/Zela_logo_branca_horizontal.svg" alt="Logo Zela" style="height:60px; border-radius:10px;">
+    <span style="font-size:14px;">
+        Status: <strong style="color:var(--verde-ativo);">● Ativo</strong>
+    </span>
+</header>
+    
+<div class="content-wrapper">
+
+    <aside class="sidebar">
+        <div class="sidebar-header-title">DASHBOARD</div>
+        <nav>
+            <a href="#" class="nav-link active" onclick="trocarTela('inicio', this); return false;">Início</a>
+            <a href="#" class="nav-link" onclick="trocarTela('solicitacoes', this); return false;">Solicitações</a>
+            <a href="#" class="nav-link" onclick="trocarTela('atendimento', this); return false;">Atendimentos</a>
+            <a href="#" class="nav-link" onclick="trocarTela('historicos', this); return false;">Históricos</a>
+        </nav>
+        <button id="btn-toggle" onclick="toggleSidebar()">
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        </button>
+    </aside>
+
+    <main id="tela-principal">
+
+        <!-- SEÇÃO INÍCIO -->
+        <section id="secao-inicio" class="tela-conteudo">
+            <div class="dash-layout">
+
+                <div class="col-perfil">
+                 
+                    <h1 class="titulo-sessao-canto">INÍCIO</h1>
+
+                    <div class="avatar-circulo">
+                        <img src="https://img.freepik.com/vetores-premium/avatar-de-personagem-feminina-bonito-estilo-3d-isolado-no-fundo-branco_764382-16301.jpg"
+                             alt="Psicóloga">
+                    </div>
+                    <h2 class="saudacao">Olá, Dr(a). [nome]</h2>
+                    <p class="sub-saudacao">Bem vindo, novamente!</p>
+                    <p class="crp-texto"><strong>CRP: 00/0000</strong></p>
+                </div>
+
+                <div class="col-stats">
+                    
+                    <div class="calendario-container">
+                        <div class="calendario-cor" id="calendar-wrapper"></div>
+                    </div>
+                    <div class="stats-list">
+                        <div class="stat-row">
+                            <span>Atendimentos Em Espera:</span>
+                            <strong id="contagem-espera">4</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>Atendimentos Concluídos:</span>
+                            <strong>00</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>Relatórios Enviados:</span>
+                            <strong>00</strong>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO SOLICITAÇÕES -->
+        <section id="secao-solicitacoes" class="tela-conteudo">
+            <div class="solicitacoes-main">
+                <h1 class="solicitacoes-title">SOLICITAÇÕES DE CHAT</h1>
+                <div class="solicitacoes-grid">
+                    <div class="sol-col" id="col-esquerda"></div>
+                    <div class="sol-divider"></div>
+                    <div class="sol-col" id="col-direita"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO ATENDIMENTO -->
+<section id="secao-atendimento" class="tela-conteudo">
+    <div class="atendimento-layout">
+
+        <!-- CHAT -->
+        <div class="chat-container">
+            <h1 class="titulo-sessao-canto">CHAT ATIVO</h1>
+            <div class="chat-mensagens" id="chat-mensagens">
+
+                <div class="balao-wrapper paciente-wrapper">
+                    <div class="avatar-chat">P</div>
+                    <div class="balao paciente-msg">
+                        <small>Paciente</small>
+                        Preciso de ajuda, estou com medo...
+                    </div>
+                </div>
+
+                <div class="balao-wrapper psicologo-wrapper">
+                    <div class="avatar-chat">Dr</div>
+                    <div class="balao psicologo-msg">
+                        <small>Psicóloga</small>
+                        Olá! Estou aqui com você. Me conta o que está acontecendo.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="chat-footer-meia-tela">
+                <textarea
+                    id="msgInput"
+                    class="chat-input"
+                    placeholder="Digite sua mensagem..."
+                    rows="2"
+                    onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();enviarMensagem();}">
+                </textarea>
+
+                <button class="btn-enviar-chat" onclick="enviarMensagem()">Enviar</button>
+            </div>
+
+        </div>
+
+        <!-- DADOS DO PACIENTE -->
+        <aside class="paciente-info-card">
+            <h2>DADOS DO PACIENTE</h2>
+
+            <div class="paciente-info-item">
+                <span>Nome</span>
+                <strong id="info-paciente-nome">Maria Oliveira</strong>
+            </div>
+
+            <div class="paciente-info-item">
+                <span>CPF</span>
+                <strong id="info-paciente-cpf">000.000.000-00</strong>
+            </div>
+
+            <div class="paciente-info-item">
+                <span>Status</span>
+                <strong id="info-paciente-status">Primeiro atendimento</strong>
+            </div>
+
+            <div class="paciente-info-item">
+                <span>Históricos salvos</span>
+                <strong id="info-paciente-historicos">0</strong>
+            </div>
+        </aside>
+
+    </div>
+</section>
+
+    <!-- SEÇÃO HISTÓRICOS -->
+<section id="secao-historicos" class="tela-conteudo">
+    <div class="historicos-layout">
+
+        <!-- LADO ESQUERDO: PRONTUÁRIO -->
+        <div class="prontuario-area">
+            <h2 class="titulo-prontuario">PRONTUÁRIO DIGITAL</h2>
+
+            <div class="linha-prontuario">
+    <label>Paciente:</label>
+
+    <input
+        type="text"
+        class="box-info-prontuario"
+        id="input-paciente"
+        placeholder="Digite o nome do paciente"
+    >
+</div>
+
+<div class="linha-prontuario">
+    <label>CPF:</label>
+
+    <input
+    type="text"
+    id="input-cpf"
+    class="box-info-prontuario"
+    maxlength="14"
+    placeholder="000.000.000-00"
+>
+</div>
+
+<div class="linha-prontuario">
+    <label>Data de Nascimento:</label>
+
+    <input
+        type="date"
+        class="box-info-prontuario"
+        id="input-nascimento"
+    >
+</div>
+
+            <h3 class="titulo-relatorio">RELATÓRIO DE ATENDIMENTO</h3>
+
+            <div class="relatorio-box-prontuario">
+                <textarea placeholder="Digite aqui..."></textarea>
+                <button class="btn-salvar-final" onclick="enviarProntuario()">Salvar</button>
+            </div>
+        </div>
+        <!-- LADO DIREITO: HISTÓRICOS -->
+        <div class="historico-area">
+            <h2 class="titulo-historicos">HISTÓRICOS</h2>
+
+            <div class="lista-historicos"> 
+                <p class="sem-historicos" id="sem-historicos">
+                         Nenhum histórico salvo ainda.
+                 </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    </main>
+</div>
+
+
+<script src="js/Tela_psicologo.js"></script>
+</body>
+</html>
