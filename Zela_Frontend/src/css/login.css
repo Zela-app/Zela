@@ -1,0 +1,507 @@
+/* =============================================
+   loginPage.css — Zela · Segurança Inteligente
+   ============================================= */
+
+/* ---- VARIÁVEIS (mantidas em sincronia com cadastroPage) ---- */
+:root {
+  --cor-principal:        #3b1c5f;
+  --cor-principal-escuro: #240d4b;
+  --cor-principal-clara:  #5d3a85;
+  --rose:                 #965d7f;
+  --rose-escuro:          #73395c;
+  --rose-claro:           #cb8cb1;
+  --azul-marinho:         #001c39;
+  --lilas:                #e0afff;
+  --branco:               #ffffff;
+  --cinza:                #475569;
+
+  --foco-ring:         rgba(224, 175, 255, 0.4);
+  --cinza-claro:       #f3f4f6;
+  --cinza-borda:       #d1d5db;
+  --cinza-texto:       #475569;
+  --cinza-placeholder: #9ca3af;
+  --verde-sucesso:     #10b981;
+  --vermelho-erro:     #ef4444;
+  --vermelho-fundo:    #fef2f2;
+
+  /* Sidebar */
+  --sidebar-bg: var(--cor-principal-escuro);
+  --blob-bg:    rgba(255,255,255,0.10);
+
+  /* Tipografia */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Poppins', sans-serif;
+}
+
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cinza-claro);
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =============================================
+   LAYOUT PRINCIPAL — duas colunas 50/50
+   ============================================= */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .login-container {
+    flex-direction: row;
+  }
+}
+
+/* =============================================
+   SIDEBAR (Esquerda — Banner Roxo)
+   ============================================= */
+.sidebar {
+  background-color: var(--sidebar-bg);
+  color: var(--branco);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  order: 2;
+  min-height: 44vh;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    width: 50%;
+    min-height: 100vh;
+    padding: 3.5rem;
+    order: 1;
+  }
+}
+
+/* Círculos decorativos de fundo */
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  background: rgba(203, 140, 177, 0.08);
+  pointer-events: none;
+}
+
+.sidebar::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -60px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(224, 175, 255, 0.06);
+  pointer-events: none;
+}
+
+.sidebar-inner {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+/* --- Blob com logo --- */
+.blob-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.blob {
+  background: rgba(255,255,255,0.10);
+  border-radius: 54% 46% 60% 40% / 47% 53% 47% 53%;
+  padding: 2.25rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255,255,255,0.12);
+  max-width: 240px;
+  animation: blobFloat 6s ease-in-out infinite;
+}
+
+@keyframes blobFloat {
+  0%, 100% { transform: translateY(0px);  border-radius: 54% 46% 60% 40% / 47% 53% 47% 53%; }
+  33%       { transform: translateY(-6px); border-radius: 60% 40% 50% 50% / 52% 48% 52% 48%; }
+  66%       { transform: translateY(4px);  border-radius: 48% 52% 55% 45% / 45% 55% 45% 55%; }
+}
+
+.logo-icon svg {
+  width: 72px;
+  height: 72px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25));
+}
+
+.logo-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.logo-name {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--branco);
+  letter-spacing: 0.02em;
+}
+
+.logo-sub {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+}
+
+/* --- Texto de boas-vindas --- */
+.welcome-text {
+  max-width: 340px;
+}
+
+.welcome-bold {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--branco);
+  margin-bottom: 0.5rem;
+}
+
+.welcome-text p:last-child {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.75);
+}
+
+/* --- Footer da sidebar --- */
+.sidebar-footer {
+  font-size: 0.75rem;
+  color: rgba(224, 175, 255, 0.45);
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar-footer p { margin: 0.15rem 0; }
+
+/* =============================================
+   MAIN CONTENT (Direita — Formulário)
+   ============================================= */
+.main-content {
+  width: 100%;
+  background-color: #f0eff4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  order: 1;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    width: 50%;
+    padding: 3rem 2.5rem;
+    order: 2;
+  }
+}
+
+/* --- Marca no topo --- */
+.brand-top {
+  text-align: center;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 6vw, 4rem);
+  font-weight: 900;
+  color: var(--cor-principal-escuro);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.brand-subtitle {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--cinza-texto);
+  letter-spacing: 0.03em;
+  margin-top: 0.35rem;
+}
+
+/* =============================================
+   CARD DO FORMULÁRIO
+   ============================================= */
+.form-card {
+  width: 100%;
+  max-width: 30rem;
+  background-color: var(--branco);
+  padding: 2.25rem 2rem;
+  border-radius: 1rem;
+  box-shadow:
+    0 4px 6px -1px rgba(59, 28, 95, 0.07),
+    0 20px 45px -10px rgba(59, 28, 95, 0.13);
+}
+
+/* =============================================
+   FEEDBACK (Sucesso / Erro global)
+   ============================================= */
+.feedback {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feedback.success {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+}
+
+.feedback.error {
+  background-color: var(--vermelho-fundo);
+  color: var(--vermelho-erro);
+  border: 1px solid #fca5a5;
+}
+
+/* =============================================
+   GRUPOS DE INPUT
+   ============================================= */
+.input-group {
+  margin-bottom: 1.25rem;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1e1e2e;
+  margin-bottom: 0.4rem;
+}
+
+.input-group input[type="email"],
+.input-group input[type="password"],
+.input-group input[type="text"] {
+  width: 100%;
+  padding: 0.72rem 1rem;
+  border: 1.5px solid var(--cinza-borda);
+  border-radius: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: #111827;
+  background-color: var(--branco);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: var(--cor-principal-clara);
+  box-shadow: 0 0 0 3px var(--foco-ring);
+}
+
+.input-group input.error-field {
+  border-color: var(--vermelho-erro);
+  background-color: var(--vermelho-fundo);
+}
+
+/* Hint abaixo do email */
+.field-hint {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--cinza-placeholder);
+  margin-top: 0.3rem;
+  line-height: 1.4;
+}
+
+/* Mensagens de erro inline */
+.error-msg {
+  color: var(--vermelho-erro);
+  font-size: 0.75rem;
+  margin-top: 0.3rem;
+  display: none;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* Wrapper da senha (com botão olho) */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 2.75rem;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--cinza-placeholder);
+  transition: color 0.2s;
+  font-size: 0.9rem;
+}
+
+.toggle-password:hover { color: var(--cor-principal); }
+
+/* =============================================
+   LINHA DE AÇÕES (Esqueceu / Entrar)
+   ============================================= */
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.link-forgot {
+  font-size: 0.8rem;
+  color: var(--cinza-texto);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.link-forgot:hover { color: var(--cor-principal); text-decoration: underline; }
+
+/* Botão Entrar — tom rose/vinho */
+.btn-entrar {
+  background-color: var(--rose);
+  color: var(--branco);
+  border: none;
+  padding: 0.65rem 1.75rem;
+  border-radius: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s, transform 0.2s, box-shadow 0.25s;
+  box-shadow: 0 4px 14px -3px rgba(150, 93, 127, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 90px;
+  justify-content: center;
+}
+
+.btn-entrar:hover {
+  background-color: var(--rose-escuro);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px -4px rgba(115, 57, 92, 0.45);
+}
+
+.btn-entrar:active { transform: translateY(0); }
+
+.btn-entrar:disabled {
+  background-color: var(--cinza-placeholder);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* =============================================
+   DIVISOR
+   ============================================= */
+.divider {
+  margin: 1.5rem 0 0 0;
+  display: flex;
+  align-items: center;
+}
+
+.divider span {
+  flex: 1;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* =============================================
+   FOOTER DO CARD (Criar conta)
+   ============================================= */
+.form-footer {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.link-criar {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--cinza-texto);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.link-criar:hover {
+  color: var(--cor-principal);
+  text-decoration: underline;
+}
+
+/* =============================================
+   UTILITÁRIOS
+   ============================================= */
+.hidden { display: none !important; }
+
+/* =============================================
+   RESPONSIVO — Mobile
+   ============================================= */
+@media (max-width: 767px) {
+  .sidebar {
+    min-height: 0;
+    padding: 1.75rem 1.5rem;
+  }
+
+  .sidebar-inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+
+
+  
+
+  .welcome-text p { font-size: 0.78rem; }
+
+  .sidebar-footer { display: none; }
+
+  .main-content { padding: 1.5rem 1rem; }
+
+  .brand-title { font-size: 2.5rem; }
+
+  .form-card { padding: 1.5rem 1.25rem; }
+}

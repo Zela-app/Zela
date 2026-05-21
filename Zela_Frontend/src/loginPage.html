@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="./css/login.css">
+  <link rel="stylesheet" href="./css/cadastroPage.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Zela - Login</title>
+</head>
+<body>
+
+  <div class="login-container">
+
+    <!-- ===== LADO ESQUERDO — BANNER ===== -->
+    <aside class="sidebar">
+      <div class="brand-header">
+        <div class="logo">
+          <img src="/Zela_Frontend/assets/icons/Zela_logo_branca_horizontal.svg" alt="logo_zela">
+        </div>
+        <div class="msg-boas-vindas">
+          <h2>Bem-Vinda!</h2>
+          <p>Sua rede de proteção inteligente. Aqui, cada passo seu importa. Estamos prontos para cuidar de você, mesmo quando as palavras faltarem. Juntos, somos mais fortes.</p>
+        </div>
+      </div>
+      <div class="sidebar-footer">
+        <p>Segurança Inteligente para Mulheres</p>
+        <p>v3.1 Beta</p>
+      </div>
+    </aside>
+
+    <!-- ===== LADO DIREITO — FORMULÁRIO ===== -->
+    <main class="main-content">
+
+      <div class="brand-top">
+        <h1 class="brand-title">Zela</h1>
+        <p class="brand-subtitle">Segurança inteligente</p>
+      </div>
+
+      <div class="form-card">
+
+        <!-- Notificação de feedback -->
+        <div id="feedback-msg" class="feedback hidden" role="alert" aria-live="polite"></div>
+
+        <form id="loginForm" novalidate>
+
+          <!-- Campo Email -->
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Insira seu email"
+              autocomplete="email"
+              aria-describedby="email-hint email-error"
+            >
+            <span id="email-hint" class="field-hint">Seu e-mail é confidencial e não será compartilhado com terceiros.</span>
+            <span id="email-error" class="error-msg" role="alert" style="display:none;">
+              <i class="fa-solid fa-circle-exclamation"></i> Por favor, insira um e-mail válido.
+            </span>
+          </div>
+
+          <!-- Campo Senha -->
+          <div class="input-group">
+            <label for="password">Senha</label>
+            <div class="password-wrapper">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Insira sua senha"
+                autocomplete="current-password"
+                aria-describedby="password-error"
+              >
+              <button type="button" class="toggle-password" id="togglePwd" aria-label="Mostrar ou ocultar senha">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+            <span id="password-error" class="error-msg" role="alert" style="display:none;">
+              <i class="fa-solid fa-circle-exclamation"></i> A senha não pode estar vazia.
+            </span>
+          </div>
+
+          <!-- Linha de ações -->
+          <div class="form-actions">
+            <a href="#" class="link-forgot" id="forgotLink">Esqueceu a senha?</a>
+            <button type="submit" class="btn-entrar" id="submitBtn">
+              <span class="btn-label">Entrar</span>
+              <span class="btn-loading hidden"><i class="fa-solid fa-spinner fa-spin"></i></span>
+            </button>
+          </div>
+
+        </form>
+
+        <!-- Divisor -->
+        <div class="divider"><span></span></div>
+
+        <!-- Link Criar conta -->
+        <div class="form-footer">
+          <a href="./cadastro.html" class="link-criar">Criar conta</a>
+        </div>
+
+      </div><!-- /.form-card -->
+
+    </main>
+
+  </div><!-- /.login-container -->
+
+  <script src="./js/login.js"></script>
+</body>
+</html>
