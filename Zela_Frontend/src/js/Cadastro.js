@@ -1,26 +1,12 @@
-// =============================================================
-//  Cadastro.js — Zela
-//  Controla o formulário de cadastro multi-etapas e
-//  envia os dados para o back-end Spring Boot via fetch()
-// =============================================================
 
-// -------------------------------------------------------------
-// 1. CONFIGURAÇÃO
-// -------------------------------------------------------------
-const API_BASE_URL = "http://localhost:8080"; // desenvolvimento
-// const API_BASE_URL = "https://api.zela.com.br"; // produção
+const API_BASE_URL = "http://localhost:8080";
 
 
-// -------------------------------------------------------------
-// 2. ESTADO
-// -------------------------------------------------------------
+
 let currentStep = 1;
 const totalSteps = 3;
 
 
-// -------------------------------------------------------------
-// 3. POPULA OS SELECTS DE DIA E ANO DINAMICAMENTE
-// -------------------------------------------------------------
 function populateDateSelects() {
     // Dias 1–31
     const daySelect = document.getElementById("day");
@@ -47,14 +33,11 @@ function populateDateSelects() {
 }
 
 
-// -------------------------------------------------------------
-// 4. NAVEGAÇÃO ENTRE ETAPAS
-// FIX: corrigida lógica duplicada do indicador e da linha ao voltar
-// -------------------------------------------------------------
+
 function changeStep(direction) {
     if (direction === 1 && !validateStep(currentStep)) return;
 
-    // Guarda a etapa ANTES de mudar (necessário para corrigir a linha ao voltar)
+  
     const previousStep = currentStep;
 
     // Marca etapa atual como concluída ao avançar
@@ -86,8 +69,6 @@ function changeStep(direction) {
         nextIndicator.classList.add("ativa", "active");
     }
 
-    // FIX: ao voltar, apaga a linha da etapa que acabamos de DEIXAR (previousStep),
-    // não da etapa para onde voltamos
     if (direction === -1) {
         const line = document.getElementById(`line-${previousStep}`);
         if (line) line.style.width = "0%";
@@ -113,9 +94,6 @@ function updateButtons() {
 }
 
 
-// -------------------------------------------------------------
-// 5. VALIDAÇÃO POR ETAPA
-// -------------------------------------------------------------
 function validateStep(step) {
     let isValid = true;
 
@@ -138,7 +116,7 @@ function validateStep(step) {
             hideError("cpf-error", "cpf");
         }
 
-        // Data de nascimento — FIX: validação de valores reais (selects)
+        
         const day   = document.getElementById("day");
         const month = document.getElementById("month");
         const year  = document.getElementById("year");
@@ -216,9 +194,7 @@ function hideError(errorId, inputId) {
 }
 
 
-// -------------------------------------------------------------
-// 6. VALIDAÇÃO DE CPF (algoritmo oficial)
-// -------------------------------------------------------------
+
 function isValidCPF(cpf) {
     //cpf = cpf.replace(/\D/g, ""); 
     // if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false; 
@@ -236,9 +212,6 @@ function isValidCPF(cpf) {
 }
 
 
-// -------------------------------------------------------------
-// 7. MÁSCARAS DE INPUT
-// -------------------------------------------------------------
 function applyMasks() {
     const cpfInput = document.getElementById("cpf");
     if (cpfInput) {
@@ -263,9 +236,7 @@ function applyMasks() {
 }
 
 
-// -------------------------------------------------------------
-// 8. MOSTRAR / OCULTAR SENHA
-// -------------------------------------------------------------
+
 function togglePasswordVisibility(inputId) {
     const input = document.getElementById(inputId);
     if (!input) return;
@@ -281,9 +252,6 @@ function togglePasswordVisibility(inputId) {
 }
 
 
-// -------------------------------------------------------------
-// 9. MODAIS
-// -------------------------------------------------------------
 function openModal(id) {
     const modal = document.getElementById(id);
     if (modal) modal.classList.add("open");
@@ -302,11 +270,6 @@ document.addEventListener("click", (e) => {
 });
 
 
-// -------------------------------------------------------------
-// 10. ENVIO DO FORMULÁRIO → SPRING BOOT
-// FIX: valida todas as etapas antes de enviar (não só a 3ª)
-// FIX: erros exibidos inline, sem alert()
-// -------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
     populateDateSelects();
     applyMasks();
@@ -368,9 +331,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// -------------------------------------------------------------
-// 11. UTILITÁRIOS
-// -------------------------------------------------------------
 
 // Alterna entre telas
 function showScreen(screenId) {
@@ -381,7 +341,6 @@ function showScreen(screenId) {
     });
 }
 
-// FIX: exibe mensagem de erro de servidor inline (sem alert)
 function showInlineError(mensagem) {
     let banner = document.getElementById("server-error-banner");
     if (!banner) {
