@@ -216,3 +216,193 @@
 .chat-input:focus { border-color: #965d7f; }
 .btn-send { background: #3b1c5f; color: white; width: 45px; height: 45px; border-radius: 50%; border: none; cursor: pointer; transition: 0.3s; }
 .btn-send:hover { background: #240d4b; }
+
+
+
+/* =========================================
+   TELA: CENTRAL DE SEGURANÇA (DASHBOARD)
+   ========================================= */
+.security-section {
+    background-color: #240d4b; /* Roxo escuro Zela */
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.security-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.security-header h3 {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.badge-green {
+    background-color: #22c55e;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Ações Rápidas */
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.action-btn {
+    padding: 30px 20px;
+    border-radius: 12px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+    text-align: center;
+    gap: 12px;
+}
+
+.action-btn:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.1);
+}
+
+.action-btn i { font-size: 2.5rem; margin-bottom: 5px; }
+.action-btn strong { font-size: 1.2rem; display: block; }
+.action-btn span { font-size: 0.9rem; opacity: 0.9; }
+
+/* Cores dos Botões de Ação */
+.btn-emergency { background-color: #dc2626; color: white; } /* Vermelho Alerta */
+.btn-silent { background-color: #965d7f; color: white; }    /* Rosé Zela */
+.btn-police { background-color: #e0afff; color: #240d4b; }  /* Lilás Zela */
+
+/* Monitoramento Ativo */
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.status-card {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo translúcido elegante */
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.status-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: #e0afff;
+    margin-bottom: 12px;
+}
+
+.status-card h4 {
+    font-size: 2rem;
+    margin: 0 0 5px 0;
+}
+
+.status-card p {
+    font-size: 0.85rem;
+    color: #d1d5db;
+    margin: 0;
+}
+
+/* Botão SOS Flutuante */
+.floating-sos {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 80px;
+    height: 80px;
+    background-color: #dc2626;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.5);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    animation: pulse-sos 2s infinite;
+}
+
+.floating-sos i { font-size: 1.8rem; margin-bottom: 2px; }
+.floating-sos span { font-size: 0.8rem; font-weight: bold; }
+
+@keyframes pulse-sos {
+    0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(220, 38, 38, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+}
+
+
+/* =========================================
+   NOVAS SEÇÕES: CHECK-IN, SENSORES E DICAS
+   ========================================= */
+
+/* Cartão Branco Padrão Zela */
+.zela-white-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #f1f1f1;
+}
+
+/* Grid Dividido (Check-in na esquerda, Sensores na direita) */
+.sec-grid-split {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+/* Interruptor (Toggle Switch) */
+.switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #cbd5e1; transition: .4s; border-radius: 24px; }
+.slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background-color: #240d4b; } /* Roxo Zela */
+input:checked + .slider:before { transform: translateX(20px); }
+
+/* Barrinha de Sensibilidade */
+.zela-range { width: 100%; -webkit-appearance: none; background: #e0afff; height: 6px; border-radius: 5px; outline: none; margin-top: 10px; }
+.zela-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #240d4b; cursor: pointer; }
+
+/* Mini Badge Verde (Ativo) */
+.badge-light-green { background-color: #dcfce7; color: #166534; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: bold; }
+
+/* Banner de Privacidade */
+.privacy-banner { background-color: #F3E8FF; padding: 20px; border-radius: 12px; color: #3b1c5f; margin-bottom: 25px; font-size: 0.95rem; border: 1px solid #e0afff; line-height: 1.5;}
+
+/* Grid de Dicas de Segurança */
+.tips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+.tip-card { padding: 20px; border-radius: 12px; display: flex; gap: 15px; }
+.tip-icon { width: 45px; height: 45px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+
+/* Responsividade Básica */
+@media (max-width: 900px) {
+    .sec-grid-split { grid-template-columns: 1fr; }
+    .tips-grid { grid-template-columns: 1fr; }
+}

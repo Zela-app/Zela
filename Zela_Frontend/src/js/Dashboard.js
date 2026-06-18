@@ -1,28 +1,199 @@
 // 1. Guardamos os blocos de HTML dentro do JavaScript
 const paginas = {
+   
+    // === 1. TELA DA DASHBOARD (Apenas os cartões brancos) ===
     dashboard: `
         <div class="dashboard-home">
             <h1 class="page-main-title">Dashboard</h1>
             <h2 class="welcome-subtitle">Olá, Maria</h2>
+            
             <div class="cards-grid">
                 <div class="zela-card">
                     <h3>Última nota</h3>
                     <span class="card-date">Atualizado em, 03/03/26</span>
-                    <p style="color: #333; font-size: 0.95rem; margin-bottom: 20px;">Lorem ipsum dolor sit amet consectetur. Pretium sit tempor consectetur molestie duis. Dis diam consectetur sit morbi.</p>
+                    <p style="color: #333; font-size: 0.95rem; margin-bottom: 20px;">
+                        Lorem ipsum dolor sit amet consectetur. Pretium sit tempor consectetur molestie duis. 
+                        Dis diam consectetur sit morbi.
+                    </p>
                     <button class="zela-btn-rose">ir para nota</button>
                 </div>
+                
                 <div class="zela-card">
                     <h3>Contatos salvos</h3>
                     <span class="card-date">Atualizado em, 03/03/26</span>
                     <div style="margin-bottom: 20px;">
-                        <div class="contact-mini-item"><strong>Mãe</strong><span>Telefone: +55 (62) 99999-9999</span></div>
-                        <div class="contact-mini-item"><strong>Amiga</strong><span>Telefone: +55 (62) 99999-9999</span></div>
+                        <div class="contact-mini-item">
+                            <strong>Mãe</strong>
+                            <span>Telefone: +55 (62) 99999-9999</span>
+                        </div>
+                        <div class="contact-mini-item">
+                            <strong>Amiga</strong>
+                            <span>Telefone: +55 (62) 99999-9999</span>
+                        </div>
                     </div>
                     <button class="zela-btn-rose">Ir para contatos</button>
                 </div>
             </div>
         </div>
     `,
+
+    // === 2. TELA DA CENTRAL DE SEGURANÇA (Os cartões roxos com SOS) ===
+    security: `
+        <h1 class="page-main-title" style="margin-bottom: 25px;">Central de Segurança</h1>
+
+        <div class="security-section">
+            <div class="security-header">
+                <h3><i class="fas fa-bolt" style="color: #e0afff;"></i> Ações Rápidas</h3>
+                <span class="badge-green"><i class="fas fa-location-arrow"></i> Localização Ativa</span>
+            </div>
+            <div class="actions-grid">
+                <button class="action-btn btn-emergency">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>
+                        <strong>Alerta de Emergência</strong>
+                        <span>Notifica contatos e grava áudio</span>
+                    </div>
+                </button>
+                <button class="action-btn btn-silent">
+                    <i class="fas fa-bell-slash"></i>
+                    <div>
+                        <strong>Alerta Silencioso</strong>
+                        <span>Monitora sem notificar agressor</span>
+                    </div>
+                </button>
+                <button class="action-btn btn-police">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <strong>Ligar 190</strong>
+                        <span>Polícia Militar</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div class="sec-grid-split">
+            
+            <div class="zela-white-card" style="display: flex; flex-direction: column;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 15px;">
+                    <h3 style="color:#2D1A4A; display:flex; align-items:center; gap:10px; font-size:1.2rem; margin:0;">
+                        <i class="fas fa-clock" style="color:#3b1c5f;"></i> Check-in de Segurança
+                    </h3>
+                    <span class="badge-light-green">Ativo</span>
+                </div>
+                <p style="color:#555; font-size:0.9rem; margin-bottom:30px;">Confirme sua segurança a cada 72 horas</p>
+                
+                <div style="margin-top: auto;"> <div style="display:flex; justify-content:space-between; font-size:0.9rem; color:#555; margin-bottom:5px;">
+                        <span>Tempo até próximo check-in</span>
+                        <strong style="color:#2D1A4A; font-size:1.1rem;">2d 22h</strong>
+                    </div>
+                    <div style="background:#e0afff; height:6px; border-radius:3px; margin-bottom:25px; position:relative;">
+                        <div style="background:#240d4b; width:15%; height:100%; border-radius:3px;"></div>
+                    </div>
+                    <button style="width:100%; background:#240d4b; color:white; padding:15px; border-radius:8px; border:none; font-weight:bold; cursor:pointer; display:flex; justify-content:center; gap:10px; transition:0.3s;" onmouseover="this.style.background='#3b1c5f'" onmouseout="this.style.background='#240d4b'">
+                        <i class="fas fa-check"></i> Confirmar que Estou Segura
+                    </button>
+                </div>
+            </div>
+
+            <div class="zela-white-card">
+                 <h3 style="color:#2D1A4A; display:flex; align-items:center; gap:10px; font-size:1.2rem; margin-top:0; margin-bottom:20px;">
+                    <i class="fas fa-robot" style="color:#3b1c5f;"></i> Detecção Automática
+                </h3>
+
+                <div style="border: 1px solid #f1f1f1; border-radius: 12px; padding: 15px; margin-bottom: 15px; background: #fafafa;">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                        <div style="display:flex; gap:15px;">
+                            <div style="width:40px; height:40px; background:#240d4b; color:white; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><i class="fas fa-bolt"></i></div>
+                            <div>
+                                <div style="display:flex; align-items:center; gap:10px;">
+                                    <strong style="color:#2D1A4A;">Detector de Movimento Brusco</strong>
+                                    <span class="badge-light-green">Ativo</span>
+                                </div>
+                                <p style="color:#888; font-size:0.85rem; margin:5px 0 10px 0;">Detecta movimentos súbitos</p>
+                            </div>
+                        </div>
+                        <label class="switch">
+                          <input type="checkbox" checked>
+                          <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:0.85rem; color:#555;">
+                        <span>Sensibilidade</span><span>77%</span>
+                    </div>
+                    <input type="range" min="1" max="100" value="77" class="zela-range">
+                    <button style="margin-top:15px; background:transparent; border:1px solid #3b1c5f; color:#3b1c5f; padding:6px 15px; border-radius:6px; font-size:0.85rem; cursor:pointer; font-weight: 600;"><i class="fas fa-pen"></i> Testar Sensor</button>
+                </div>
+
+                <div style="border: 1px solid #f1f1f1; border-radius: 12px; padding: 15px; background: #fafafa;">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                        <div style="display:flex; gap:15px;">
+                            <div style="width:40px; height:40px; background:#240d4b; color:white; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><i class="fas fa-volume-up"></i></div>
+                            <div>
+                                <div style="display:flex; align-items:center; gap:10px;">
+                                    <strong style="color:#2D1A4A;">Detector de Sons Altos</strong>
+                                    <span class="badge-light-green">Ativo</span>
+                                </div>
+                                <p style="color:#888; font-size:0.85rem; margin:5px 0 10px 0;">Identifica gritos ou sons altos</p>
+                            </div>
+                        </div>
+                        <label class="switch">
+                          <input type="checkbox" checked>
+                          <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:0.85rem; color:#555;">
+                        <span>Sensibilidade</span><span>80%</span>
+                    </div>
+                    <input type="range" min="1" max="100" value="80" class="zela-range">
+                    <button style="margin-top:15px; background:transparent; border:1px solid #3b1c5f; color:#3b1c5f; padding:6px 15px; border-radius:6px; font-size:0.85rem; cursor:pointer; font-weight: 600;"><i class="fas fa-pen"></i> Testar Sensor</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="privacy-banner">
+            <strong style="font-weight: 700;">Privacidade:</strong> Todos os dados dos sensores são processados localmente no seu dispositivo. Nenhuma informação é enviada para servidores externos até que um alerta seja confirmado.
+        </div>
+
+        <div class="zela-white-card" style="margin-bottom: 80px;"> <h3 style="color:#2D1A4A; font-size:1.4rem; margin-top:0; margin-bottom:5px;">Dicas de Segurança</h3>
+            <div class="tips-grid">
+                <div class="tip-card" style="background:#f8f4ff; border: 1px solid #e0afff;">
+                    <div class="tip-icon" style="background:#e0afff; color:#3b1c5f;"><i class="fas fa-mobile-alt"></i></div>
+                    <div>
+                        <strong style="color:#2D1A4A; display:block; margin-bottom:5px;">Mantenha celular carregado</strong>
+                        <p style="color:#555; font-size:0.9rem; margin:0; line-height: 1.4;">Certifique-se de que seu dispositivo esteja sempre com bateria suficiente para acionar os alertas.</p>
+                    </div>
+                </div>
+                <div class="tip-card" style="background:#fff0f8; border: 1px solid #ffcced;">
+                    <div class="tip-icon" style="background:#965d7f; color:#ffffff;"><i class="fas fa-user-shield"></i></div>
+                    <div>
+                        <strong style="color:#2D1A4A; display:block; margin-bottom:5px;">Configure contatos</strong>
+                        <p style="color:#555; font-size:0.9rem; margin:0; line-height: 1.4;">Adicione pessoas de confiança que possam responder rapidamente em caso de emergência.</p>
+                    </div>
+                </div>
+                <div class="tip-card" style="background:#f0fdf4; border: 1px solid #bbf7d0;">
+                    <div class="tip-icon" style="background:#dcfce7; color:#166534;"><i class="fas fa-clock"></i></div>
+                    <div>
+                        <strong style="color:#2D1A4A; display:block; margin-bottom:5px;">Check-ins regulares</strong>
+                        <p style="color:#555; font-size:0.9rem; margin:0; line-height: 1.4;">Não espere até o último momento. Confirme sua segurança regularmente.</p>
+                    </div>
+                </div>
+                <div class="tip-card" style="background:#fff7ed; border: 1px solid #fed7aa;">
+                    <div class="tip-icon" style="background:#ffedd5; color:#c2410c;"><i class="fas fa-flask"></i></div>
+                    <div>
+                        <strong style="color:#2D1A4A; display:block; margin-bottom:5px;">Teste os sensores</strong>
+                        <p style="color:#555; font-size:0.9rem; margin:0; line-height: 1.4;">Use os botões de teste para se familiarizar com como o sistema funciona.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="floating-sos" onclick="abrirModalSOS()">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>SOS</span>
+        </button>
+    `,
+    // (As outras páginas continuam aqui embaixo normais: notes, profile, etc...)
+
     profile: `
         <h1 class="page-main-title">Perfil do Usuário</h1>
         <div class="zela-card profile-card">
