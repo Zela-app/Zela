@@ -1,0 +1,202 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #F8F9FA; /* Fundo levemente cinza do lado direito */
+}
+
+/* Container que divide a tela ao meio */
+.container-split {
+    display: flex;
+    height: 100vh; /* Ocupa 100% da altura da tela */
+    width: 100vw;
+}
+
+/* === LADO ESQUERDO === */
+.left-side {
+    width: 50%;
+    background-color: #3B235D; /* Roxo escuro do Zela */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.blob-bg {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    top: 10%;
+    z-index: 1;
+}
+
+.content-left {
+    position: relative;
+    z-index: 2;
+    max-width: 400px;
+    text-align: left;
+}
+
+.logo-branca {
+    width: 80px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-left h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.content-left .subtitle {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+.welcome-text h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.welcome-text p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* === LADO DIREITO === */
+.right-side {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1A1A1A;
+}
+
+.logo-dark-text {
+    font-size: 5rem;
+    color: #2D1A4A;
+    margin-bottom: -5px;
+}
+
+.subtitle-dark {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* === CARD DO FORMULÁRIO === */
+.login-card {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08); /* Sombra suave idêntica à imagem */
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #2D1A4A;
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #E0D4EB; /* Borda roxa bem clara */
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #9A6A8C;
+}
+
+.input-group small {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+/* Ações (Esqueceu a senha + Botão Entrar) */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.forgot-password {
+    color: #2D1A4A;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.btn-entrar {
+    background-color: #9A6A8C; /* Roxo mais claro do botão */
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn-entrar:hover {
+    background-color: #7D5270;
+}
+
+/* Divisor e Criar Conta */
+.divider {
+    border: none;
+    border-top: 1px solid #EAEAEA;
+    margin: 25px 0;
+}
+
+.create-account {
+    text-align: center;
+}
+
+.link-criar-conta {
+    color: #2D1A4A;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.link-criar-conta:hover {
+    text-decoration: underline;
+}

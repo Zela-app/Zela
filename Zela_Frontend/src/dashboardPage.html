@@ -36,82 +36,82 @@
 
             <!-- Navegação -->
             <nav class="sidebar-nav">
-                <button class="nav-item active" data-page="profile">
-                    <i class="fas fa-user"></i>
-                    <span>Perfil</span>
+                <button class="nav-item active" data-page="dashboard">
+                    <span>Dashboard</span>
                 </button>
                 <button class="nav-item" data-page="notes">
-                    <i class="fas fa-file-alt"></i>
                     <span>Anotações</span>
                 </button>
-                <button class="nav-item" data-page="chat">
-                    <i class="fas fa-comment-dots"></i>
-                    <span>Chat com o Psicólogo</span>
-                </button>
                 <button class="nav-item" data-page="emergency">
-                    <i class="fas fa-users"></i>
-                    <span>Contatos de Emergência</span>
+                    <span>Contatos de emergência</span>
                 </button>
-                <button class="nav-item" data-page="settings">
-                    <i class="fas fa-cog"></i>
-                    <span>Configurações</span>
+                <button class="nav-item" data-page="psychologist">
+                    <span>Psicólogo</span>
+                </button>
+                <button class="nav-item" data-page="profile">
+                    <span>Perfil</span>
                 </button>
             </nav>
+            </aside>
 
-            <!-- Info do Usuário -->
-            <div class="sidebar-user">
-                <div class="sidebar-avatar">MM</div>
-                <div class="sidebar-user-info">
-                    <p class="sidebar-username">Mariana Moenchiali</p>
-                    <p class="sidebar-email">mariomoenchiali@ema..</p>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Conteúdo Principal -->
         <main class="main-content">
 
-            <!-- Header -->
             <header class="top-header">
-                <div class="header-inner">
-
-                    <!-- Hambúrguer -->
+                <div class="header-inner" style="justify-content: flex-end;">
                     <button class="hamburger-btn" onclick="toggleSidebar(true)">
                         <i class="fas fa-bars"></i>
                     </button>
 
-            
-
-                    <!-- Ações do Header -->
-                    <div class="header-actions">
-                        <button class="notif-btn">
-                            <i class="fas fa-bell"></i>
-                            <span class="notif-dot"></span>
-                        </button>
-                        <div class="header-user">
-                            <img src="./assets/img/foto perfil.png"
-                                 onerror="this.src='https://ui-avatars.com/api/?name=Mariana+Moenchiali&background=3b1c5f&color=fff'"
-                                 alt="Mariana" class="header-avatar">
-                            <div class="header-user-info">
-                                <p class="sidebar-username">Mariana Silva</p>
-                                <p class="sidebar-email">marisilva@ema...</p>
-                            </div>
-                        </div>
+                    <div class="header-user">
+                        <p class="header-username" style="font-weight: 700; color: #3b1c5f; margin-right: 15px;">Maria</p>
+                        <img src="./assets/img/foto perfil.png"
+                             onerror="this.src='https://ui-avatars.com/api/?name=Maria&background=3b1c5f&color=fff'"
+                             alt="Maria" class="header-avatar" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
                     </div>
-
                 </div>
             </header>
 
             <!-- Área de Conteúdo -->
             <div class="content-area">
                 <div class="content-inner">
-                    <h2 id="pageTitle" class="page-title">Perfil</h2>
-                    <div id="pageContent" class="animate-fade-in"></div>
+                    
+                    <div id="pageContent" class="animate-fade-in">
+                        <div class="dashboard-home">
+                            <h1 class="page-main-title">Dashboard</h1>
+                            <h2 class="welcome-subtitle">Olá, Maria</h2>
+                            
+                            <div class="cards-grid">
+                                <div class="zela-card">
+                                    <h3>Última nota</h3>
+                                    <span class="card-date">Atualizado em, 03/03/26</span>
+                                    <p style="color: #333; font-size: 0.95rem; margin-bottom: 20px;">
+                                        Lorem ipsum dolor sit amet consectetur. Pretium sit tempor consectetur molestie duis. 
+                                        Dis diam consectetur sit morbi.
+                                    </p>
+                                    <button class="zela-btn-rose">ir para nota</button>
+                                </div>
+                                
+                                <div class="zela-card">
+                                    <h3>Contatos salvos</h3>
+                                    <span class="card-date">Atualizado em, 03/03/26</span>
+                                    <div style="margin-bottom: 20px;">
+                                        <div class="contact-mini-item">
+                                            <strong>Mãe</strong>
+                                            <span>Telefone: +55 (62) 99999-9999</span>
+                                        </div>
+                                        <div class="contact-mini-item">
+                                            <strong>Amiga</strong>
+                                            <span>Telefone: +55 (62) 99999-9999</span>
+                                        </div>
+                                    </div>
+                                    <button class="zela-btn-rose">Ir para contatos</button>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
                 </div>
             </div>
-
-        </main>
-    </div>
 
     <!-- ===================== MODAIS ===================== -->
 

@@ -13,28 +13,28 @@
     <header>
     <nav class="navbar">
         
-            <img class="logo" src="/Zela_Frontend/assets/icons/Zela_logo_rose.svg" alt="logo zela">
+            <img class="logo" src="assets/Zela_logo_padrao_rose.svg" alt="logo zela">
             <ul class="menu">
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Compromisso</a></li>
-                <li><a href="#">Como funciona</a></li>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#compromisso">Compromisso</a></li>
+                <li><a href="#recursos">Como funciona</a></li>
             </ul>
         
         <div class="nav-right">
-            <a href="#" class="link-login">Entrar</a>
-            <button id="cadastro">Cadastre-se</button>
+            <a href="../login.html" class="link-login">Entrar</a>
+            <button id="cadastro" onclick="window.location.href='cadastroPage.html'">Cadastre-se</button>
         </div>
     </nav>
 </header>
     <main>
-        <section class="hero">
+        <section class="hero" id="inicio">
             <div>
                 <span class="badge">Proteção inteligente e Discreta</span>  
                 <h1>Tecnologia que protege. <br>Cuidado que acolhe.</h1> 
                 <p class="subtitulo">Vigilância e segurança de forma rápida e segura para você e sua família, com foco na rapidez e discrição.</p> 
                 <div class="hero-btns">
-                    <button id="btn-cadastro" class="btn-hero">Junte-se à nós. Sinta-se mais segura hoje! </button>
-                    <button class="saiba-mais">Saiba mais</button>
+                    <button id="btn-cadastro" class="btn-hero" onclick="window.location.href='cadastroPage.html'">Junte-se à nós. Sinta-se mais segura hoje!</button>
+                    <button class="saiba-mais" onclick="window.location.href='#recursos'">Saiba mais</button>
                 </div>
                 <div class="hero-trust">
                    <span class="trust-item"><i class="fa-solid fa-shield-heart"></i>
@@ -51,7 +51,7 @@
                 </div>
             </div>
         </section>
-        <section class="compromisso">
+        <section class="compromisso" id="compromisso">
     <div class="container-grid">
         <h2 class="title-white">Nosso compromisso com você</h2>
         <div class="compromisso-cards">
@@ -79,7 +79,7 @@
     </div>
 </section>
 
-<section class="recursos">
+<section class="recursos" id="recursos">
     <div class="container-grid">
         <span class="badge">Recursos</span>
         <h2 class="title-dark">Tudo o que você precisa para se sentir segura</h2>
@@ -133,7 +133,7 @@
             <p>Utilize as tecnologias inteligentes para monitorar em tempo real quem mais você ama. Você não está sozinha.</p>
             
             <div class="prioridade-btns">
-                <button id="js-btn-assinatura" class="btn-white">Junte-se a nós. Sinta-se segura hoje.</button>
+                <button id="js-btn-assinatura" class="btn-white" onclick="window.location.href='cadastroPage.html'">Junte-se a nós. Sinta-se segura hoje.</button>
                 <button class="btn-outline-white">Saiba mais</button>
             </div>
 

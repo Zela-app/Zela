@@ -1,3 +1,8 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
 :root{
     --cor-principal: #3b1c5f;
     --cor-principal-escuro: #240d4b;
