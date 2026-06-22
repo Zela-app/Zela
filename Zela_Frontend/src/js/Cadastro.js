@@ -1,11 +1,7 @@
-
 const API_BASE_URL = "http://localhost:8080";
-
-
 
 let currentStep = 1;
 const totalSteps = 3;
-
 
 function populateDateSelects() {
     // Dias 1–31
@@ -32,12 +28,9 @@ function populateDateSelects() {
     }
 }
 
-
-
 function changeStep(direction) {
     if (direction === 1 && !validateStep(currentStep)) return;
 
-  
     const previousStep = currentStep;
 
     // Marca etapa atual como concluída ao avançar
@@ -93,7 +86,6 @@ function updateButtons() {
     }
 }
 
-
 function validateStep(step) {
     let isValid = true;
 
@@ -116,7 +108,6 @@ function validateStep(step) {
             hideError("cpf-error", "cpf");
         }
 
-        
         const day   = document.getElementById("day");
         const month = document.getElementById("month");
         const year  = document.getElementById("year");
@@ -144,28 +135,37 @@ function validateStep(step) {
             hideError("email-error", "email");
         }
 
-        // Telefone
-        const phone = document.getElementById("phone");
+        // Telefone (Acha tanto 'phone' quanto 'telefone')
+        const phone = document.getElementById("phone") || document.getElementById("telefone");
         if (!phone || phone.value.replace(/\D/g, "").length < 10) {
-            showError("telefone-error", "phone");
+            showError("telefone-error", phone ? phone.id : "telefone");
             isValid = false;
         } else {
-            hideError("telefone-error", "phone");
+            hideError("telefone-error", phone ? phone.id : "telefone");
+        }
+
+        // === NOVA VALIDAÇÃO: TIPO DE CONTA ===
+        const tipoConta = document.getElementById("tipoConta");
+        if (!tipoConta || !tipoConta.value) {
+            showError("tipoConta-error", "tipoConta");
+            isValid = false;
+        } else {
+            hideError("tipoConta-error", "tipoConta");
         }
     }
 
     if (step === 3) {
-        const password = document.getElementById("password");
-        // FIX: id corrigido para "confirme-password" (igual ao HTML)
+        // Senha (Acha tanto 'password' quanto 'senha')
+        const password = document.getElementById("password") || document.getElementById("senha");
         const confirm  = document.getElementById("confirme-password");
         const terms    = document.getElementById("terms");
 
         const senhaOk = password?.value.length >= 8 && password.value === confirm?.value;
         if (!senhaOk) {
-            showError("password-error", "password");
+            showError("password-error", password ? password.id : "password");
             isValid = false;
         } else {
-            hideError("password-error", "password");
+            hideError("password-error", password ? password.id : "password");
         }
 
         if (!terms?.checked) {
@@ -193,24 +193,10 @@ function hideError(errorId, inputId) {
     if (inputEl) inputEl.classList.remove("error");
 }
 
-
-
 function isValidCPF(cpf) {
-    //cpf = cpf.replace(/\D/g, ""); 
-    // if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false; 
-    // let sum = 0;
-    //for (let i = 0; i < 9; i++) sum += parseInt(cpf[i]) * (10 - i);
-    //let remainder = (sum * 10) % 11;
-    //if (remainder === 10 || remainder === 11) remainder = 0;
-    //if (remainder !== parseInt(cpf[9])) return false;
-
-    //sum = 0;
-    //for (let i = 0; i < 10; i++) sum += parseInt(cpf[i]) * (11 - i);
-    //remainder = (sum * 10) % 11;
-    //if (remainder === 10 || remainder === 11) remainder = 0;
-    return true;;
+    // Mantido como o original
+    return true;
 }
-
 
 function applyMasks() {
     const cpfInput = document.getElementById("cpf");
@@ -224,7 +210,7 @@ function applyMasks() {
         });
     }
 
-    const phoneInput = document.getElementById("phone");
+    const phoneInput = document.getElementById("phone") || document.getElementById("telefone");
     if (phoneInput) {
         phoneInput.addEventListener("input", (e) => {
             let v = e.target.value.replace(/\D/g, "").slice(0, 11);
@@ -234,8 +220,6 @@ function applyMasks() {
         });
     }
 }
-
-
 
 function togglePasswordVisibility(inputId) {
     const input = document.getElementById(inputId);
@@ -250,7 +234,6 @@ function togglePasswordVisibility(inputId) {
         btn.classList.toggle("fa-eye-slash",   isPassword);
     }
 }
-
 
 function openModal(id) {
     const modal = document.getElementById(id);
@@ -268,7 +251,6 @@ document.addEventListener("click", (e) => {
         e.target.classList.remove("open");
     }
 });
-
 
 document.addEventListener("DOMContentLoaded", () => {
     populateDateSelects();
@@ -289,14 +271,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const month = document.getElementById("month")?.value.padStart(2, "0");
         const year  = document.getElementById("year")?.value;
 
+        // ==========================================
+        // PAYLOAD COM O NOVO TIPO DE USUÁRIO
+        // ==========================================
         const payload = {
             nome:            document.getElementById("name")?.value.trim(),
             cpf:             document.getElementById("cpf")?.value, 
             dataNascimento:  `${day}/${month}/${year}`, 
             email:           document.getElementById("email")?.value.trim().toLowerCase(),
             telefone:        (document.getElementById("phone") || document.getElementById("telefone"))?.value, 
-            senha:           document.getElementById("password")?.value,
+            tipoUsuario:     document.getElementById("tipoConta")?.value, // <-- A MÁGICA ACONTECE AQUI
+            senha:           (document.getElementById("password") || document.getElementById("senha"))?.value,
         };
+
         // Exibe a tela de loading
         showScreen("loading-screen");
 
@@ -318,7 +305,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 const errorData = await response.json().catch(() => null);
                 const mensagem  = errorData?.mensagem || errorData?.message || "Erro ao cadastrar. Tente novamente.";
                 showScreen("form-container");
-                // FIX: erro exibido inline no topo do formulário, sem alert()
                 showInlineError(mensagem);
             }
 
@@ -329,8 +315,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-
-
 
 // Alterna entre telas
 function showScreen(screenId) {

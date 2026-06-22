@@ -13,227 +13,242 @@
 </head>
 <body>
 
-    <!-- Overlay Mobile -->
     <div id="mobileOverlay" class="mobile-overlay" onclick="toggleSidebar(false)"></div>
 
-    
-
-    <!-- Container Principal -->
     <div class="app-container">
 
-        <!-- Sidebar -->
         <aside id="mainSidebar" class="sidebar">
-
-            <!-- Logo -->
             <div class="sidebar-logo">
-                <img src="/Zela_Frontend/assets/icons/Zela_logo_branca_horizontal.svg" alt="Zela"
-                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                <div class="sidebar-logo-fallback">
-                    <i class="fas fa-shield-alt"></i> ZELA
-                </div>
+                <img src="./assets/Zela_logo_branca_horizontal.svg" alt="Zela" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="sidebar-logo-fallback"></div>
             </div>
 
-
-            <!-- Navegação -->
-           <nav class="sidebar-nav">
-                <button class="nav-item active" data-page="dashboard">
-                    <span>Dashboard</span>
-                </button>
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-page="dashboard"><span>Dashboard</span></button>
+                <button class="nav-item" data-page="security"><span>Central de Segurança</span></button>
+                <button class="nav-item" data-page="notes"><span>Anotações</span></button>
+                <button class="nav-item" data-page="emergency"><span>Contatos de emergência</span></button>
+                <button class="nav-item" data-page="psychologist"><span>Psicólogo</span></button>
+                <button class="nav-item" data-page="profile"><span>Perfil</span></button>
                 
-                <button class="nav-item" data-page="security">
-                    <span>Central de Segurança</span>
-                </button>
-                <button class="nav-item" data-page="notes">
-                    <span>Anotações</span>
-                </button>
-                <button class="nav-item" data-page="emergency">
-                    <span>Contatos de emergência</span>
-                </button>
-                <button class="nav-item" data-page="psychologist">
-                    <span>Psicólogo</span>
-                </button>
-                <button class="nav-item" data-page="profile">
-                    <span>Perfil</span>
+                <button class="nav-item" style="margin-top: 40px; color: #dc2626;" onclick="window.fazerLogout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
                 </button>
             </nav>
-            </aside>
+        </aside>
 
         <main class="main-content">
-
             <header class="top-header">
                 <div class="header-inner" style="justify-content: flex-end;">
-                    <button class="hamburger-btn" onclick="toggleSidebar(true)">
-                        <i class="fas fa-bars"></i>
-                    </button>
-
+                    <button class="hamburger-btn" onclick="toggleSidebar(true)"><i class="fas fa-bars"></i></button>
                     <div class="header-user">
-                        <p class="header-username" style="font-weight: 700; color: #3b1c5f; margin-right: 15px;">Maria</p>
-                        <img src="./assets/img/foto perfil.png"
-                             onerror="this.src='https://ui-avatars.com/api/?name=Maria&background=3b1c5f&color=fff'"
-                             alt="Maria" class="header-avatar" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <p id="header-username" class="header-username" style="font-weight: 700; color: #3b1c5f; margin-right: 15px;">Carregando...</p>
+                        <img id="header-avatar" src="" alt="Avatar" class="header-avatar" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
                     </div>
                 </div>
             </header>
 
-            <!-- Área de Conteúdo -->
             <div class="content-area">
                 <div class="content-inner">
-                    
-                    <div id="pageContent" class="animate-fade-in">
-                        <div class="dashboard-home">
-                            <h1 class="page-main-title">Dashboard</h1>
-                            <h2 class="welcome-subtitle">Olá, Maria</h2>
-                            
-                            <div class="cards-grid">
-                                <div class="zela-card">
-                                    <h3>Última nota</h3>
-                                    <span class="card-date">Atualizado em, 03/03/26</span>
-                                    <p style="color: #333; font-size: 0.95rem; margin-bottom: 20px;">
-                                        Lorem ipsum dolor sit amet consectetur. Pretium sit tempor consectetur molestie duis. 
-                                        Dis diam consectetur sit morbi.
-                                    </p>
-                                    <button class="zela-btn-rose">ir para nota</button>
-                                </div>
-                                
-                                <div class="zela-card">
-                                    <h3>Contatos salvos</h3>
-                                    <span class="card-date">Atualizado em, 03/03/26</span>
-                                    <div style="margin-bottom: 20px;">
-                                        <div class="contact-mini-item">
-                                            <strong>Mãe</strong>
-                                            <span>Telefone: +55 (62) 99999-9999</span>
-                                        </div>
-                                        <div class="contact-mini-item">
-                                            <strong>Amiga</strong>
-                                            <span>Telefone: +55 (62) 99999-9999</span>
-                                        </div>
-                                    </div>
-                                    <button class="zela-btn-rose">Ir para contatos</button>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-
+                    <div id="pageContent" class="animate-fade-in"></div>
                 </div>
             </div>
+        </main>
+    </div>
 
-    <!-- ===================== MODAIS ===================== -->
-
-   
-
-    <!-- Modal Alterar Senha -->
     <div id="passwordModal" class="modal-overlay" style="display:none;">
         <div class="modal-box">
-            <div class="modal-header">
-                <h2><i class="fas fa-lock"></i> Alterar Senha</h2>
-                <button class="modal-close-btn" onclick="closePasswordModal()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
+            <div class="modal-header"><h2><i class="fas fa-lock"></i> Alterar Senha</h2><button class="modal-close-btn" onclick="closePasswordModal()"><i class="fas fa-times"></i></button></div>
             <form onsubmit="event.preventDefault(); saveNewPassword();" class="modal-form">
+                <div class="form-field"><label>Senha Atual</label><div class="input-icon-wrapper"><input type="password" id="currentPass"><i class="fas fa-key input-icon-right"></i></div></div>
+                <div class="form-field"><label>Nova Senha</label><input type="password" id="newPass"></div>
+                <div class="form-field"><label>Confirmar Nova Senha</label><input type="password" id="confirmPass"></div>
+                <div class="modal-actions"><button type="button" onclick="closePasswordModal()" class="btn-outline">Cancelar</button><button type="submit" class="btn-primary">Salvar Senha</button></div>
+            </form>
+        </div>
+    </div>
+
+    <div id="sensorModal" class="modal-overlay" style="display:none;">
+        <div class="modal-box">
+            <div class="modal-header modal-header-warning"><h3><i class="fas fa-exclamation-triangle pulse-icon"></i> Sensor Acionado</h3></div>
+            <div class="sensor-body"><button onclick="confirmSafe()" class="btn-safe">Estou Segura</button></div>
+        </div>
+    </div>
+
+    <div id="noteModal" class="modal-overlay" style="display:none;">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 id="noteModalTitle"><i class="fas fa-file-alt"></i> Nova Anotação</h2>
+                <button class="modal-close-btn" onclick="closeNoteModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <form onsubmit="event.preventDefault(); saveNote();" class="modal-form">
+                <input type="hidden" id="noteId">
                 <div class="form-field">
-                    <label>Senha Atual</label>
-                    <div class="input-icon-wrapper">
-                        <input type="password" id="currentPass">
-                        <i class="fas fa-key input-icon-right"></i>
-                    </div>
+                    <label>Título</label>
+                    <input type="text" id="noteTitle" required placeholder="Ex: Sessão de Terapia" class="modal-input" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
                 </div>
-                <div class="form-field">
-                    <label>Nova Senha</label>
-                    <input type="password" id="newPass">
+                <div class="form-field" style="margin-top: 15px;">
+                    <label>Conteúdo</label>
+                    <textarea id="noteContent" required placeholder="Digite os detalhes da sua anotação aqui..." rows="5" class="modal-input" style="width: 100%; resize: vertical; padding: 12px; font-family: inherit; border: 1px solid #ccc; border-radius: 6px;"></textarea>
                 </div>
-                <div class="form-field">
-                    <label>Confirmar Nova Senha</label>
-                    <input type="password" id="confirmPass">
-                </div>
-                <div class="modal-actions">
-                    <button type="button" onclick="closePasswordModal()" class="btn-outline">Cancelar</button>
-                    <button type="submit" class="btn-primary">Salvar Senha</button>
+                <div class="modal-actions" style="margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px;">
+                    <button type="button" onclick="closeNoteModal()" class="btn-outline" style="padding: 10px 15px; border-radius: 6px; border: 1px solid #3b1c5f; background: transparent; color: #3b1c5f; cursor: pointer;">Cancelar</button>
+                    <button type="submit" class="btn-primary" style="padding: 10px 15px; border-radius: 6px; border: none; background: #3b1c5f; color: white; cursor: pointer;">Salvar Anotação</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Modal Sensor -->
-    <div id="sensorModal" class="modal-overlay" style="display:none;">
+    <div id="deleteNoteModal" class="modal-overlay" style="display:none;">
         <div class="modal-box">
-            <div class="modal-header modal-header-warning">
-                <h3><i class="fas fa-exclamation-triangle pulse-icon"></i> Sensor Acionado: <span id="sensorName"></span></h3>
-                <p>Detectamos uma atividade suspeita. Por favor, confirme sua segurança.</p>
+            <div class="modal-header" style="background-color: #fef2f2; border-bottom: 1px solid #fee2e2;">
+                <h3 style="color: #dc2626;"><i class="fas fa-trash-alt"></i> Confirmar Exclusão</h3>
             </div>
-            <div class="sensor-body">
-                <div class="sensor-countdown-wrapper">
-                    <div id="countdown" class="sensor-countdown">60</div>
-                    <p>segundos para confirmar que está segura</p>
-                </div>
-                <div class="sensor-progress-bar">
-                    <div id="progressFill" class="sensor-progress-fill"></div>
-                </div>
-                <div class="sensor-info-box">
-                    <p><strong>O que está acontecendo?</strong></p>
-                    <p>Detectamos um padrão que pode indicar situação de perigo.</p>
-                </div>
-                <div class="sensor-actions">
-                    <button onclick="confirmSafe()" class="btn-safe">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Estou Segura</span>
-                    </button>
-                    <button onclick="sendAlertNow()" class="btn-danger-outline">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <span>Preciso de Ajuda</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Excluir Anotação -->
-    <div id="deleteNoteModal" class="modal-overlay modal-overlay-red" style="display:none;">
-        <div class="modal-box">
-            <div class="modal-header modal-header-danger">
-                <h3><i class="fas fa-trash-alt"></i> Confirmar Exclusão</h3>
-            </div>
-            <div class="modal-body-text">
+            <div style="padding: 20px;">
                 <p>Tem certeza que deseja excluir a anotação:</p>
-                <p id="noteToDeleteTitle" class="delete-item-name"></p>
-                <p class="delete-warning">Esta ação não pode ser desfeita.</p>
+                <p id="noteToDeleteTitle" style="font-weight: bold; font-size: 1.1rem; color: #3b1c5f; margin: 10px 0;"></p>
+                <p style="color: #dc2626; font-size: 0.85rem;">Esta ação não pode ser desfeita.</p>
             </div>
-            <div class="modal-footer modal-footer-right">
-                <button onclick="closeDeleteNoteModal()" class="btn-outline">Cancelar</button>
-                <button onclick="deleteNoteFromModal()" class="btn-danger">Sim, Excluir</button>
+            <div class="modal-actions" style="padding: 15px 20px; display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid #eee;">
+                <button onclick="closeDeleteNoteModal()" class="btn-outline" style="padding: 10px 15px; border-radius: 6px; border: 1px solid #ccc; background: transparent; cursor: pointer;">Cancelar</button>
+                <button onclick="deleteNoteFromModal()" class="btn-danger" style="padding: 10px 15px; border-radius: 6px; border: none; background: #dc2626; color: white; cursor: pointer;">Sim, Excluir</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal Excluir Contato -->
-    <div id="deleteConfirmationModal" class="modal-overlay" style="display:none;">
+    <div id="contactModal" class="modal-overlay" style="display:none;">
         <div class="modal-box">
-            <h2 class="modal-title-danger"><i class="fas fa-exclamation-triangle"></i> Confirmar Exclusão</h2>
-            <p class="modal-body-text">Tem certeza que deseja excluir o contato <strong id="contactToDeleteName"></strong>?</p>
-            <div class="modal-actions">
-                <button onclick="closeDeleteModal()" class="btn-outline">Cancelar</button>
-                <button id="confirmDeleteBtn" onclick="executeDelete()" class="btn-danger">Sim, Excluir</button>
+            <div class="modal-header">
+                <h2 id="contactModalTitle"><i class="fas fa-user-plus"></i> Novo Contato</h2>
+                <button class="modal-close-btn" onclick="closeContactModal()"><i class="fas fa-times"></i></button>
             </div>
+            <form onsubmit="event.preventDefault(); saveContact();" class="modal-form">
+                <input type="hidden" id="contactId">
+                <div class="form-field">
+                    <label>Nome do Contato</label>
+                    <input type="text" id="contactName" required placeholder="Ex: Mãe, João..." class="modal-input" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
+                </div>
+                <div class="form-field" style="margin-top: 15px;">
+                    <label>Telefone</label>
+                    <input type="text" id="contactPhone" required placeholder="+55 (00) 00000-0000" class="modal-input" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
+                </div>
+                <div class="form-field" style="margin-top: 15px;">
+                    <label>Localização (Opcional)</label>
+                    <input type="text" id="contactLocation" placeholder="Ex: Goiânia, Goiás" class="modal-input" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
+                </div>
+                <div class="modal-actions" style="margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px;">
+                    <button type="button" onclick="closeContactModal()" class="btn-outline" style="padding: 10px 15px; border-radius: 6px; border: 1px solid #3b1c5f; background: transparent; color: #3b1c5f; cursor: pointer;">Cancelar</button>
+                    <button type="submit" class="btn-primary" style="padding: 10px 15px; border-radius: 6px; border: none; background: #3b1c5f; color: white; cursor: pointer;">Salvar Contato</button>
+                </div>
+            </form>
         </div>
     </div>
 
-    <!-- Modal Adicionar Contato -->
-    <div id="addContactModal" class="modal-overlay" style="display:none;">
+    <div id="deleteContactModal" class="modal-overlay" style="display:none;">
         <div class="modal-box">
-            <h2 class="modal-title-primary"><i class="fas fa-user-plus"></i> <span id="modalTitleText">Novo Contato</span></h2>
-            <div class="modal-form">
-                <input id="contactName"     type="text" placeholder="Nome completo"  class="modal-input">
-                <input id="contactPhone"    type="text" placeholder="Telefone"        class="modal-input">
-                <input id="contactRelation" type="text" placeholder="Parentesco"      class="modal-input">
+            <div class="modal-header" style="background-color: #fef2f2; border-bottom: 1px solid #fee2e2;">
+                <h3 style="color: #dc2626;"><i class="fas fa-user-minus"></i> Confirmar Exclusão</h3>
             </div>
-            <div class="modal-actions">
-                <button onclick="closeAddContactModal()" class="btn-outline">Cancelar</button>
-                <button onclick="saveNewEmergencyContact()" class="btn-primary">Salvar</button>
+            <div style="padding: 20px;">
+                <p>Tem certeza que deseja remover este contato de emergência:</p>
+                <p id="contactToDeleteName" style="font-weight: bold; font-size: 1.1rem; color: #3b1c5f; margin: 10px 0;"></p>
+                <p style="color: #dc2626; font-size: 0.85rem;">Ele não será mais notificado em caso de alerta.</p>
+            </div>
+            <div class="modal-actions" style="padding: 15px 20px; display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid #eee;">
+                <button onclick="closeDeleteContactModal()" class="btn-outline" style="padding: 10px 15px; border-radius: 6px; border: 1px solid #ccc; background: transparent; cursor: pointer;">Cancelar</button>
+                <button onclick="deleteContactFromModal()" class="btn-danger" style="padding: 10px 15px; border-radius: 6px; border: none; background: #dc2626; color: white; cursor: pointer;">Remover</button>
             </div>
         </div>
     </div>
 
-    <!-- Toast Container -->
+    <div id="editProfileModal" class="modal-overlay" style="display:none;">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 id="editProfileModalTitle"><i class="fas fa-user-edit"></i> Editar Perfil</h2>
+                <button class="modal-close-btn" onclick="closeEditProfileModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <form onsubmit="event.preventDefault(); saveProfile();" class="modal-form">
+                
+                <div class="form-field">
+                    <label>Nome Completo</label>
+                    <input type="text" id="editProfileName" required class="modal-input" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
+                </div>
+                
+                <div class="form-field" style="margin-top: 15px;">
+                    <label>E-mail</label>
+                    <input type="email" id="editProfileEmail" required class="modal-input" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
+                </div>
+
+                <div class="form-field" style="margin-top: 15px;">
+                    <label>Telefone</label>
+                    <input type="text" id="editProfilePhone" placeholder="(00) 00000-0000" class="modal-input" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
+                </div>
+                
+                <div class="modal-actions" style="margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px;">
+                    <button type="button" onclick="closeEditProfileModal()" class="btn-outline" style="padding: 10px 15px; border-radius: 6px; border: 1px solid #3b1c5f; background: transparent; color: #3b1c5f; cursor: pointer;">Cancelar</button>
+                    <button type="submit" class="btn-primary" style="padding: 10px 15px; border-radius: 6px; border: none; background: #3b1c5f; color: white; cursor: pointer;">Salvar Alterações</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<!-- ========================================== -->
+    <!-- BOTÃO SOS GLOBAL E MODAL DE EMERGÊNCIA     -->
+    <!-- ========================================== -->
+    <button class="floating-sos" onclick="abrirModalSOS()">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>SOS</span>
+    </button>
+
+    <div id="sosModal" class="modal-overlay" style="display:none;">
+        <div class="modal-box" style="border: 4px solid #dc2626;">
+            <div class="modal-header" style="background-color: #dc2626; color: white;">
+                <h2 style="color: white; margin: 0;"><i class="fas fa-exclamation-triangle pulse-icon"></i> EMERGÊNCIA SOS</h2>
+            </div>
+            <div style="padding: 30px; text-align: center;">
+                <i class="fas fa-broadcast-tower" style="font-size: 3rem; color: #dc2626; margin-bottom: 20px; animation: pulse-sos 1.5s infinite;"></i>
+                <h3 style="color: #2D1A4A; font-size: 1.5rem; margin-bottom: 10px;">Enviando Alerta...</h3>
+                <p style="color: #555; font-size: 1.1rem; line-height: 1.5;">Sua localização em tempo real e um alerta de perigo estão sendo enviados para os seus contatos de emergência.</p>
+            </div>
+            <div class="modal-actions" style="padding: 20px; justify-content: center; background: #fef2f2;">
+                <button onclick="cancelarSOS()" class="btn-outline" style="border-color: #dc2626; color: #dc2626; width: 100%; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer;">Cancelar Alerta Falso</button>
+            </div>
+        </div>
+    </div>  
+
+    <div id="chatModal" class="modal-overlay" style="display:none;">
+        <div class="modal-box" style="height: 80vh; max-height: 700px; display: flex; flex-direction: column;">
+            
+            <div class="modal-header" style="background-color: #fcfaff; border-bottom: 1px solid #e0afff;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <img id="chatProfAvatar" src="" style="width: 45px; height: 45px; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div>
+                        <strong id="chatProfNome" style="color: #2D1A4A; display: block; font-size: 1.1rem; margin-bottom: 2px;">Doutor</strong>
+                        <span style="color: #22c55e; font-size: 0.85rem; font-weight: 600;">
+                            <i class="fas fa-circle" style="font-size: 0.6rem;"></i> Online
+                        </span>
+                    </div>
+                </div>
+                <input type="hidden" id="chatProfId">
+                <button class="modal-close-btn" onclick="fecharChatModal()"><i class="fas fa-times"></i></button>
+            </div>
+
+            <div id="chatMessagesArea" style="flex: 1; padding: 20px; overflow-y: auto; background: #fdfcff; display: flex; flex-direction: column; gap: 15px;">
+                <p style="text-align: center; color: #888; font-size: 0.9rem;">Carregando histórico...</p>
+            </div>
+
+            <div style="padding: 15px; border-top: 1px solid #e0afff; display: flex; gap: 10px; background: white; align-items: center;">
+                <input type="text" id="chatInputMessage" placeholder="Escreva sua mensagem..." style="flex: 1; border: 1px solid #e0afff; border-radius: 25px; padding: 12px 20px; outline: none; font-family: inherit; font-size: 0.95rem;" onkeypress="if(event.key === 'Enter') window.enviarMensagemReal()">
+                <button onclick="window.enviarMensagemReal()" style="background: #3b1c5f; color: white; width: 45px; height: 45px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: 0.3s;">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
     <div id="toastContainer" class="toast-container"></div>
 
     <script src="./js/Dashboard.js"></script>

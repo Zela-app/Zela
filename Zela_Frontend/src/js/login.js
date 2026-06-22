@@ -19,9 +19,31 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
         // O Java respondeu! Vamos ver se a senha estava certa:
         if (resposta.ok) {
-            //alert('Bem-vinda de volta ao Zela!');
-            // Redireciona para a página principal (ajuste o nome se necessário)
-            window.location.href = 'src/dashboardPage.html';
+            // Desempacota o JSON que o Java mandou de volta
+            const dadosDoJava = await resposta.json();
+            
+            // Salva os dados na memória do navegador (nossa "mochila")
+            localStorage.setItem('perfilUsuario', dadosDoJava.tipoUsuario);
+            localStorage.setItem('emailUsuario', emailDigitado);
+            
+            // ==========================================
+            // SALVA O NOME PARA USAR NO DASHBOARD/PERFIL
+            // ==========================================
+           localStorage.setItem('nomeUsuario', dadosDoJava.nome);
+    // ADICIONE ESTA LINHA:
+    localStorage.setItem('idUsuario', dadosDoJava.idUsuario);
+
+            // ==========================================
+            // O REDIRECIONAMENTO INTELIGENTE POR PERFIL
+            // ==========================================
+            if (dadosDoJava.tipoUsuario === 'psicologo') {
+                // Se for psicólogo, vai para o painel de pacientes
+                window.location.href = 'src/Psicolo_page.html'; 
+            } else {
+                // Se for usuária padrão, vai para a Central de Segurança / Dashboard
+                window.location.href = 'src/dashboardPage.html';
+            }
+
         } else {
             alert('E-mail ou senha incorretos. Tente novamente.');
         }

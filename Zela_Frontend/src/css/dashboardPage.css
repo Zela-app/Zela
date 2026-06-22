@@ -406,3 +406,149 @@ input:checked + .slider:before { transform: translateX(20px); }
     .sec-grid-split { grid-template-columns: 1fr; }
     .tips-grid { grid-template-columns: 1fr; }
 }
+
+/* ==========================================================================
+   ESTILOS GERAIS PARA TODOS OS MODAIS (SOBREPOSIÇÃO E CAIXA)
+   ========================================================================== */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(36, 13, 75, 0.6); /* Fundo Roxo Zela com transparência */
+    backdrop-filter: blur(4px); /* Efeito de desfoque no fundo */
+    z-index: 9999; /* Fica por cima de absolutamente tudo na tela */
+    display: none; /* Escondido por padrão, o JS muda para flex */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-box {
+    background-color: #ffffff;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    animation: modalFadeIn 0.3s ease-out;
+    overflow: hidden;
+}
+
+/* Animação suave de surgimento */
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h2, .modal-header h3 {
+    margin: 0;
+    color: #240d4b;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-close-btn {
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close-btn:hover {
+    color: #dc2626;
+}
+
+.modal-form {
+    padding: 25px;
+}
+
+.form-field {
+    margin-bottom: 15px;
+}
+
+.form-field label {
+    display: block;
+    font-weight: 600;
+    color: #3b1c5f;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+}
+
+.modal-input:focus {
+    border-color: #965d7f;
+    box-shadow: 0 0 0 3px rgba(150, 93, 127, 0.1);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* --- ESTILOS EXTRAS DA CENTRAL DE SEGURANÇA --- */
+.monitoramento-banner {
+    background-color: #240d4b;
+    border-radius: 12px;
+    padding: 25px;
+    color: white;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 15px -3px rgba(36, 13, 75, 0.3);
+}
+
+.monit-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.monit-item {
+    background: rgba(255,255,255,0.1);
+    padding: 15px 20px;
+    border-radius: 8px;
+    min-width: 120px;
+}
+
+.monit-item span { display: block; font-size: 0.85rem; color: #e0afff; margin-bottom: 5px; }
+.monit-item strong { display: block; font-size: 1.8rem; margin-bottom: 2px; }
+.monit-item small { font-size: 0.75rem; opacity: 0.8; }
+
+/* Animação do botão SOS */
+@keyframes pulse-sos {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}

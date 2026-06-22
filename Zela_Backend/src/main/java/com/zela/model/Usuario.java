@@ -29,7 +29,10 @@ public class Usuario {
     @Column(nullable = false, length = 255)
     private String senha;
 
-   
+    // === NOVA COLUNA ADICIONADA AQUI ===
+    @Column(name = "tipo_usuario", length = 20)
+    private String tipoUsuario;
+    // ===================================
 
     public Integer getIdUsuario() { return idUsuario; }
     public void setIdUsuario(Integer idUsuario) { this.idUsuario = idUsuario; }
@@ -51,4 +54,9 @@ public class Usuario {
 
     public String getSenha() { return senha; }
     public void setSenha(String senha) { this.senha = senha; }
+
+    // === NOVOS GETTERS E SETTERS ===
+    public String getTipoUsuario() { return tipoUsuario; }
+    public void setTipoUsuario(String tipoUsuario) { this.tipoUsuario = tipoUsuario; }
+    // ===============================
 }

@@ -9,7 +9,7 @@
 <body>
 
 <header>
-    <img src="/Zela_Frontend/assets/icons/Zela_logo_branca_horizontal.svg" alt="Logo Zela" style="height:60px; border-radius:10px;">
+    <img src="/Zela_Frontend/src/assets/Zela_logo_branca_horizontal.svg" alt="Logo Zela" style="height:60px; border-radius:10px;">
     <span style="font-size:14px;">
         Status: <strong style="color:var(--verde-ativo);">● Ativo</strong>
     </span>
@@ -24,6 +24,9 @@
             <a href="#" class="nav-link" onclick="trocarTela('solicitacoes', this); return false;">Solicitações</a>
             <a href="#" class="nav-link" onclick="trocarTela('atendimento', this); return false;">Atendimentos</a>
             <a href="#" class="nav-link" onclick="trocarTela('historicos', this); return false;">Históricos</a>
+            
+            <!-- NOVO: Botão de Sair (Logout) -->
+            <a href="#" class="nav-link" style="margin-top: 40px; color: #ff4d4d; font-weight: bold;" onclick="window.fazerLogout(); return false;">Sair</a>
         </nav>
         <button id="btn-toggle" onclick="toggleSidebar()">
             <div class="bar"></div><div class="bar"></div><div class="bar"></div>
